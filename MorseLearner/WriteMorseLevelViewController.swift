@@ -13,7 +13,6 @@ class WriteMorseLevelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ok")
-
         // Do any additional setup after loading the view.
     }
 

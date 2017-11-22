@@ -46,10 +46,18 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morse Learner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8i-RO-SFp">
+                                <rect key="frame" x="64.5" y="209.5" width="246.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="l8i-RO-SFp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6zM-ol-BW5"/>
                             <constraint firstItem="aXJ-Xx-Q7p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="IU5-Y6-blO"/>
+                            <constraint firstItem="aXJ-Xx-Q7p" firstAttribute="centerY" secondItem="l8i-RO-SFp" secondAttribute="centerY" constant="100" id="NCU-8O-3PN"/>
                             <constraint firstItem="aXJ-Xx-Q7p" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QGF-1V-61E"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aXJ-Xx-Q7p" secondAttribute="trailing" constant="20" id="Sqi-LZ-HLE"/>
                         </constraints>
@@ -59,29 +67,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Write Morse Level View Controller-->
+        <!--Write Morse View Controller-->
         <scene sceneID="Rys-GC-n7A">
             <objects>
-                <viewController id="zBw-qy-bs1" customClass="WriteMorseLevelViewController" customModule="MorseLearner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zBw-qy-bs1" customClass="WriteMorseViewController" customModule="MorseLearner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kf6-iH-8dR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZJ-tb-g24">
-                                <rect key="frame" x="166" y="106" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2a-XE-rQh">
+                                <rect key="frame" x="50" y="270" width="25" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="3kg-mP-9NP"/>
+                                    <constraint firstAttribute="height" constant="25" id="ZhV-8k-JPW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="12.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="shortMorseButtonAction:" destination="zBw-qy-bs1" eventType="touchUpInside" id="vjf-3j-OwU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUb-Tv-UEZ">
+                                <rect key="frame" x="174.5" y="70" width="25" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCE-sZ-JaL">
+                                <rect key="frame" x="162.5" y="277" width="50" height="12"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="KzB-cr-afw"/>
+                                    <constraint firstAttribute="width" constant="50" id="ynL-XG-Tr5"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="longMorseButtonAction:" destination="zBw-qy-bs1" eventType="touchUpInside" id="tpX-0S-cSV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMJ-E5-14L">
+                                <rect key="frame" x="16" y="20" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Retour"/>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="zBw-qy-bs1" eventType="touchUpInside" id="7li-uX-2wJ"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="kEZ-F9-e1b"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HL-Xn-vuE">
+                                <rect key="frame" x="187.5" y="218" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnA-pB-08P">
+                                <rect key="frame" x="283" y="268" width="42" height="30"/>
+                                <state key="normal" title="Suppr"/>
+                                <connections>
+                                    <action selector="removeButtonAction:" destination="zBw-qy-bs1" eventType="touchUpInside" id="bBM-FE-r3L"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gUb-Tv-UEZ" firstAttribute="top" secondItem="nfu-bm-ycD" secondAttribute="top" constant="50" id="8Ze-GP-nPw"/>
+                            <constraint firstItem="qnA-pB-08P" firstAttribute="centerY" secondItem="UCE-sZ-JaL" secondAttribute="centerY" id="Hey-4V-YR4"/>
+                            <constraint firstItem="0HL-Xn-vuE" firstAttribute="centerX" secondItem="Kf6-iH-8dR" secondAttribute="centerX" id="KXk-l3-b8s"/>
+                            <constraint firstItem="gUb-Tv-UEZ" firstAttribute="centerX" secondItem="Kf6-iH-8dR" secondAttribute="centerX" id="N8n-6a-a8R"/>
+                            <constraint firstItem="UCE-sZ-JaL" firstAttribute="centerY" secondItem="t2a-XE-rQh" secondAttribute="centerY" id="UsI-uT-Vc0"/>
+                            <constraint firstItem="0HL-Xn-vuE" firstAttribute="top" secondItem="gUb-Tv-UEZ" secondAttribute="bottom" constant="100" id="bsR-qY-75f"/>
+                            <constraint firstItem="t2a-XE-rQh" firstAttribute="top" secondItem="nfu-bm-ycD" secondAttribute="top" constant="250" id="c4K-8f-q2o"/>
+                            <constraint firstItem="UCE-sZ-JaL" firstAttribute="centerX" secondItem="Kf6-iH-8dR" secondAttribute="centerX" id="uq8-L9-36C"/>
+                            <constraint firstItem="t2a-XE-rQh" firstAttribute="leading" secondItem="nfu-bm-ycD" secondAttribute="leading" constant="50" id="xMg-hQ-9AC"/>
+                            <constraint firstItem="nfu-bm-ycD" firstAttribute="trailing" secondItem="qnA-pB-08P" secondAttribute="trailing" constant="50" id="yTL-dZ-EBU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nfu-bm-ycD"/>
                     </view>
+                    <connections>
+                        <outlet property="letterLabel" destination="gUb-Tv-UEZ" id="fjL-xY-lTY"/>
+                        <outlet property="morseResultLabel" destination="0HL-Xn-vuE" id="wLn-nr-cCe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0f-ax-rHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="50"/>
+            <point key="canvasLocation" x="1423" y="30"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gon-MD-vy0">
@@ -96,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Qg-hp-b1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="799"/>
+            <point key="canvasLocation" x="1404" y="827"/>
         </scene>
     </scenes>
 </document>
