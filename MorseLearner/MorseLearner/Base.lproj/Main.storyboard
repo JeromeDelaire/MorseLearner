@@ -94,7 +94,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUb-Tv-UEZ">
-                                <rect key="frame" x="174.5" y="70" width="25" height="48"/>
+                                <rect key="frame" x="175" y="70" width="25" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -130,7 +130,7 @@
                                     <navigationItem title=" " id="7Pg-jB-ewZ">
                                         <barButtonItem key="leftBarButtonItem" title="Retour" id="hJO-Ja-GZz">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="svW-qt-cBJ"/>
+                                                <action selector="e:" destination="zBw-qy-bs1" id="ub4-lq-1Lm"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -211,6 +211,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="responseChanged:" destination="pB1-DQ-YQd" eventType="editingChanged" id="TmH-6E-kXJ"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9g-D7-w51">
                                 <rect key="frame" x="313" y="83.5" width="42" height="21"/>
@@ -219,7 +222,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oc5-rm-Nlu">
-                                <rect key="frame" x="172" y="70" width="32" height="48"/>
+                                <rect key="frame" x="171.5" y="70" width="32" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -241,6 +244,7 @@
                         <viewLayoutGuide key="safeArea" id="lad-JM-jAI"/>
                     </view>
                     <connections>
+                        <outlet property="morseLabel" destination="Oc5-rm-Nlu" id="336-ly-LCf"/>
                         <outlet property="timeLabel" destination="x9g-D7-w51" id="azE-WY-Z2L"/>
                     </connections>
                 </viewController>
@@ -249,7 +253,4 @@
             <point key="canvasLocation" x="1404" y="826.23688155922048"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="PJT-Dw-bml"/>
-    </inferredMetricsTieBreakers>
 </document>

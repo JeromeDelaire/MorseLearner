@@ -11,6 +11,7 @@ import UIKit
 class ReadMorseViewController: UIViewController {
 
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var morseLabel: UILabel!
     
     var timeRemaining = 60
     
@@ -19,6 +20,8 @@ class ReadMorseViewController: UIViewController {
         timeLabel.text = String(timeRemaining)
 
         var _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        
+        morseLabel.text = MorseDecoder.getRandomMorse()
         // Do any additional setup after loading the view.
     }
 
@@ -31,7 +34,7 @@ class ReadMorseViewController: UIViewController {
         timeRemaining -= 1
         
         if(timeRemaining==0){
-            self.dismiss(animated: true, completion: {});
+            self.dismiss(animated: true, completion: {})
         }
             
         else{
@@ -39,8 +42,20 @@ class ReadMorseViewController: UIViewController {
         }
         
     }
-    
 
+    
+    @IBAction func responseChanged(_ sender: UITextField) {
+        
+        
+        
+        
+        if sender.text!.underestimatedCount > 1 {
+            sender.text! = String(describing: sender.text!.last!)
+            
+        }
+ 
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -50,5 +65,6 @@ class ReadMorseViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }

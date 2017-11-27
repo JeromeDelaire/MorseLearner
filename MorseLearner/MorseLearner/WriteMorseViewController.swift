@@ -21,7 +21,7 @@ class WriteMorseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLabel.text = String(timeRemaining)
-        letterLabel.text = randomString()
+        letterLabel.text = MorseDecoder.randomLetter()
         var _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
@@ -36,7 +36,7 @@ class WriteMorseViewController: UIViewController {
         
         if(morseResultLabel.text!==MorseDecoder.getMorse(letter: letterLabel.text!)){
             
-            letterLabel.text = randomString()
+            letterLabel.text = MorseDecoder.randomLetter()
             morseResultLabel.text = ""
             score += 1
             scoreLabel.text = "Score : \(score)"
@@ -49,7 +49,7 @@ class WriteMorseViewController: UIViewController {
 
         if(morseResultLabel.text!==MorseDecoder.getMorse(letter: letterLabel.text!)){
             
-            letterLabel.text = randomString()
+            letterLabel.text = MorseDecoder.randomLetter()
             morseResultLabel.text = ""
             score += 1
             scoreLabel.text = "Score : \(score)"
@@ -70,8 +70,8 @@ class WriteMorseViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-    
+*/
+
     @objc func update() {
         timeRemaining -= 1
         
@@ -84,19 +84,4 @@ class WriteMorseViewController: UIViewController {
         }
         
     }
-    
-    func randomString() -> String {
-        
-        let letters : NSString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let len = UInt32(letters.length)
-        
-        var randomString = ""
-        
-        let rand = arc4random_uniform(len)
-        var nextChar = letters.character(at: Int(rand))
-        randomString += NSString(characters: &nextChar, length: 1) as String
-        
-        return randomString
-    }
-
 }
