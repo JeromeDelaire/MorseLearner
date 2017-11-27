@@ -10,31 +10,16 @@ import Foundation
 
 class MorseDecoder {
     
-    let letters = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."]
-    
-    let digits = ["-----", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----."]
-    
-    func getMorse(letter: Character) -> String {
-        var index = letter.unicodeScalarCodePoint()
-        if(index<65){
-            index -= 48 ;
-            return digits[index]
-        }else{
-            index -= 65 ;
-            return letters[index]
-        }
+    static func getMorse(letter: String) -> String {
         
+        let char = ["A": ".-", "B": "-...", "C": "-.-.", "D": "-..", "E": ".", "F": "..-.", "G": "--.", "H": "....", "I": "..", "J": ".---", "K": "-.-", "L": ".-..", "M": "--", "N": "-.", "O": "---", "P": ".--.", "Q": "--.-", "R": ".-.", "S": "...", "T": "-", "U": "..-", "V": "...-", "W": ".--", "X": "-..-", "Y": "-.--", "Z": "--..","0": "-----", "1": ".----", "2": "..---", "3": "...--", "4": "....-", "5": ".....", "6": "-....", "7": "--...", "8": "---..", "9": "----."]
         
+        return char[letter]!
     }
-}
-
-extension Character
-{
-    func unicodeScalarCodePoint() -> Int
-    {
-        let characterString = String(self)
-        let scalars = characterString.unicodeScalars
+    
+    static func getAlphanumeric(morse_str: String) -> String {
+        let morse = [".-": "A", "-...": "B", "-.-.": "C", "-..": "D", ".": "E", "..-.": "F", "--.": "G", "....": "H", "..": "I", ".---": "J", "-.-": "K", ".-..": "L", "--": "M", "-.": "N", "---": "O", ".--.": "P", "--.-": "Q", ".-.": "R", "...": "S", "-": "T", "..-": "U", "...-": "V", ".--": "W", "-..-": "X", "-.--": "Y", "--..": "Z","-----": "0", ".----": "1", "..---": "2", "...--": "3", "....-": "4", ".....": "5", "-....": "6", "--...": "7", "---..": "8", "----.": "9"]
         
-        return (Int)(scalars[scalars.startIndex].value)
+        return morse[morse_str]!
     }
 }

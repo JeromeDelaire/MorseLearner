@@ -13,6 +13,7 @@
 		B60319641FC46D8600A6C6F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B60319631FC46D8600A6C6F6 /* Assets.xcassets */; };
 		B60319671FC46D8600A6C6F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60319651FC46D8600A6C6F6 /* LaunchScreen.storyboard */; };
 		B60319721FC46D8600A6C6F6 /* MorseLearnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60319711FC46D8600A6C6F6 /* MorseLearnerTests.swift */; };
+		B68F888B1FCC537C0014338E /* ReadMorseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68F888A1FCC537C0014338E /* ReadMorseViewController.swift */; };
 		B6976A581FC5AD7B0060C0EB /* WriteMorseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6976A571FC5AD7B0060C0EB /* WriteMorseViewController.swift */; };
 		B6976A5C1FC5CA830060C0EB /* MorseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6976A5B1FC5CA830060C0EB /* MorseDecoder.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		B603196D1FC46D8600A6C6F6 /* MorseLearnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MorseLearnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B60319711FC46D8600A6C6F6 /* MorseLearnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseLearnerTests.swift; sourceTree = "<group>"; };
 		B60319731FC46D8600A6C6F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B68F888A1FCC537C0014338E /* ReadMorseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMorseViewController.swift; sourceTree = "<group>"; };
 		B6976A571FC5AD7B0060C0EB /* WriteMorseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMorseViewController.swift; sourceTree = "<group>"; };
 		B6976A5B1FC5CA830060C0EB /* MorseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				B603195C1FC46D8600A6C6F6 /* AppDelegate.swift */,
 				B603195E1FC46D8600A6C6F6 /* ViewController.swift */,
 				B6976A571FC5AD7B0060C0EB /* WriteMorseViewController.swift */,
+				B68F888A1FCC537C0014338E /* ReadMorseViewController.swift */,
 				B60319601FC46D8600A6C6F6 /* Main.storyboard */,
 				B60319631FC46D8600A6C6F6 /* Assets.xcassets */,
 				B60319651FC46D8600A6C6F6 /* LaunchScreen.storyboard */,
@@ -207,6 +210,7 @@
 			files = (
 				B603195F1FC46D8600A6C6F6 /* ViewController.swift in Sources */,
 				B6976A5C1FC5CA830060C0EB /* MorseDecoder.swift in Sources */,
+				B68F888B1FCC537C0014338E /* ReadMorseViewController.swift in Sources */,
 				B6976A581FC5AD7B0060C0EB /* WriteMorseViewController.swift in Sources */,
 				B603195D1FC46D8600A6C6F6 /* AppDelegate.swift in Sources */,
 			);
