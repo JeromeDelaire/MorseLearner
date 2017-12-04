@@ -12,8 +12,17 @@ class ReadMorseViewController: UIViewController {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var morseLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var maxScoreLabel: UILabel!
+    
+    static let maxScoreKey = "score"
+    
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("scores")
     
     var timeRemaining = 60
+    var score = 0
+    var maxScore = MaxScore(writeScore: 0, readScore: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +31,8 @@ class ReadMorseViewController: UIViewController {
         var _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
         
         morseLabel.text = MorseDecoder.getRandomMorse()
+        scoreLabel.text! = "Score : \(score)"
+        maxScoreLabel.text = "Record : \(maxScore.loadReadScore()!)"
         // Do any additional setup after loading the view.
     }
 
@@ -46,16 +57,34 @@ class ReadMorseViewController: UIViewController {
     
     @IBAction func responseChanged(_ sender: UITextField) {
         
-        
-        
-        
-        if sender.text!.underestimatedCount > 1 {
+        if sender.text!.count > 1 {
             sender.text! = String(describing: sender.text!.last!)
-            
         }
- 
+        
+        if sender.text!.count == 1 {
+            if(MorseDecoder.getMorse(letter: sender.text!.uppercased())==morseLabel.text!){
+                morseLabel.text! = MorseDecoder.getRandomMorse()
+                score += 1
+                scoreLabel.text! = "Score : \(score)"
+                sender.text! = ""
+                
+                if(score>maxScore.loadReadScore()!){
+                    maxScore.readScore = score
+                    maxScore.saveReadScore()
+                    maxScoreLabel.text = "Record : \(score)"
+                }
+            }
+            
+            else {
+                if(score>0) {
+                    score -= 1
+                }
+                scoreLabel.text! = "Score : \(score)"
+                
+            }
+        }
+
     }
-    
     /*
     // MARK: - Navigation
 

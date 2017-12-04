@@ -14,15 +14,18 @@ class WriteMorseViewController: UIViewController {
     @IBOutlet weak var letterLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var maxScoreLabel: UILabel!
     
     var timeRemaining = 60
     var score = 0
+    var maxScore = MaxScore(writeScore: 0, readScore: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLabel.text = String(timeRemaining)
         letterLabel.text = MorseDecoder.randomLetter()
         var _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        maxScoreLabel.text = "Record : \(maxScore.loadWriteScore()!)"
         // Do any additional setup after loading the view.
     }
 
@@ -41,6 +44,12 @@ class WriteMorseViewController: UIViewController {
             score += 1
             scoreLabel.text = "Score : \(score)"
             
+            if(score>maxScore.loadWriteScore()!) {
+                maxScore.writeScore = score
+                maxScore.saveWriteScore()
+                maxScoreLabel.text = "Record : \(score)"
+            }
+            
         }
     }
     
@@ -54,6 +63,11 @@ class WriteMorseViewController: UIViewController {
             score += 1
             scoreLabel.text = "Score : \(score)"
             
+            if(score>maxScore.loadWriteScore()!) {
+                maxScore.writeScore = score
+                maxScore.saveWriteScore()
+                maxScoreLabel.text = "Record : \(score)"
+            }
         }
     }
     

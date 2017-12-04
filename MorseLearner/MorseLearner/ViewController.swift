@@ -9,10 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var writeMaxScoreLabel: UILabel!
+    @IBOutlet weak var readMaxScoreLabel: UILabel!
+    
+    var maxScore = MaxScore(writeScore: 0,readScore: 0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        writeMaxScoreLabel.text = "Record : \(maxScore.loadWriteScore()!)"
+        readMaxScoreLabel.text = "Record : \(maxScore.loadReadScore()!)"
+        // any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +28,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func cancel(sender: UIStoryboardSegue) {
+        
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        writeMaxScoreLabel.text = "Record : \(maxScore.loadWriteScore()!)"
+        readMaxScoreLabel.text = "Record : \(maxScore.loadReadScore()!)"
+    }
 
 }
 
