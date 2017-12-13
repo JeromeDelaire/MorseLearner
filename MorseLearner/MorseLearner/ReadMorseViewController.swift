@@ -15,24 +15,24 @@ class ReadMorseViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var maxScoreLabel: UILabel!
     
-    static let maxScoreKey = "score"
-    
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("scores")
-    
     var timeRemaining = 60
     var score = 0
-    var maxScore = MaxScore(writeScore: 0, readScore: 0)
+    var maxScore: MaxScore?
+    var settingsSaver = SettingsSaver(1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        maxScore = MaxScore(settingsSaver.loadGamesTime()!)
+        
         timeLabel.text = String(timeRemaining)
+        timeRemaining = settingsSaver.loadGamesTime()! * 60
 
         var _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
         
-        morseLabel.text = MorseDecoder.getRandomMorse()
+        morseLabel.text = MorseDecoder.randomLetter()
         scoreLabel.text! = "Score : \(score)"
-        maxScoreLabel.text = "Record : \(maxScore.loadReadScore()!)"
+        maxScoreLabel.text = "Record : \(maxScore!.loadReadScore()!)"
         // Do any additional setup after loading the view.
     }
 
@@ -62,15 +62,15 @@ class ReadMorseViewController: UIViewController {
         }
         
         if sender.text!.count == 1 {
-            if(MorseDecoder.getMorse(letter: sender.text!.uppercased())==morseLabel.text!){
-                morseLabel.text! = MorseDecoder.getRandomMorse()
+            if(sender.text!.uppercased()==morseLabel.text!){
+                morseLabel.text! = MorseDecoder.randomLetter()
                 score += 1
                 scoreLabel.text! = "Score : \(score)"
                 sender.text! = ""
                 
-                if(score>maxScore.loadReadScore()!){
-                    maxScore.readScore = score
-                    maxScore.saveReadScore()
+                if(score>maxScore!.loadReadScore()!){
+                    maxScore!.readScore = score
+                    maxScore!.saveReadScore()
                     maxScoreLabel.text = "Record : \(score)"
                 }
             }

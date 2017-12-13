@@ -16,16 +16,19 @@ class WriteMorseViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var maxScoreLabel: UILabel!
     
-    var timeRemaining = 60
     var score = 0
-    var maxScore = MaxScore(writeScore: 0, readScore: 0)
+    var maxScore : MaxScore?
+    var settingsSaver = SettingsSaver(1)
+    var timeRemaining = 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        maxScore = MaxScore(settingsSaver.loadGamesTime()!)
+        timeRemaining = settingsSaver.loadGamesTime()! * 60
         timeLabel.text = String(timeRemaining)
         letterLabel.text = MorseDecoder.randomLetter()
         var _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
-        maxScoreLabel.text = "Record : \(maxScore.loadWriteScore()!)"
+        maxScoreLabel.text = "Record : \(maxScore!.loadWriteScore()!)"
         // Do any additional setup after loading the view.
     }
 
@@ -35,18 +38,18 @@ class WriteMorseViewController: UIViewController {
     }
     
     @IBAction func shortMorseButtonAction(_ sender: UIButton) {
-        morseResultLabel.text! += "."
+        morseResultLabel.text! += "E"
         
-        if(morseResultLabel.text!==MorseDecoder.getMorse(letter: letterLabel.text!)){
+        if(convertMorseResult(morse: morseResultLabel.text!)==MorseDecoder.getMorse(letter: letterLabel.text!)){
             
             letterLabel.text = MorseDecoder.randomLetter()
             morseResultLabel.text = ""
             score += 1
             scoreLabel.text = "Score : \(score)"
             
-            if(score>maxScore.loadWriteScore()!) {
-                maxScore.writeScore = score
-                maxScore.saveWriteScore()
+            if(score>maxScore!.loadWriteScore()!) {
+                maxScore!.writeScore = score
+                maxScore!.saveWriteScore()
                 maxScoreLabel.text = "Record : \(score)"
             }
             
@@ -54,18 +57,18 @@ class WriteMorseViewController: UIViewController {
     }
     
     @IBAction func longMorseButtonAction(_ sender: UIButton) {
-        morseResultLabel.text! += "-"
+        morseResultLabel.text! += "T"
 
-        if(morseResultLabel.text!==MorseDecoder.getMorse(letter: letterLabel.text!)){
+        if(convertMorseResult(morse: morseResultLabel.text!)==MorseDecoder.getMorse(letter: letterLabel.text!)){
             
             letterLabel.text = MorseDecoder.randomLetter()
             morseResultLabel.text = ""
             score += 1
             scoreLabel.text = "Score : \(score)"
             
-            if(score>maxScore.loadWriteScore()!) {
-                maxScore.writeScore = score
-                maxScore.saveWriteScore()
+            if(score>maxScore!.loadWriteScore()!) {
+                maxScore!.writeScore = score
+                maxScore!.saveWriteScore()
                 maxScoreLabel.text = "Record : \(score)"
             }
         }
@@ -97,5 +100,22 @@ class WriteMorseViewController: UIViewController {
            timeLabel.text = String(timeRemaining)
         }
         
+    }
+    
+    func convertMorseResult(morse: String) -> String {
+        var temp = ""
+        for i in 0...morse.count-1 {
+            let index = morse.index(morse.startIndex, offsetBy: i)
+  
+            if morse[index] == "E" {
+                temp += "."
+            }
+            
+            else if morse[index] == "T" {
+                temp += "-"
+            }
+        }
+        
+        return temp
     }
 }

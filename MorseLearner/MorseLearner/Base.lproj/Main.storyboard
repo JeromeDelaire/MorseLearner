@@ -9,6 +9,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Sketch_Block.ttf">
+            <string>freeversionSketchBlock-Bold</string>
+        </array>
+        <array key="morse.ttf">
+            <string>morse</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -19,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aXJ-Xx-Q7p">
-                                <rect key="frame" x="20" y="298" width="335" height="121"/>
+                                <rect key="frame" x="20" y="295.5" width="335" height="121"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G3l-id-sYB">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50.5"/>
@@ -65,45 +73,78 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morse Learner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8i-RO-SFp">
-                                <rect key="frame" x="64.5" y="210" width="246.5" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <rect key="frame" x="61" y="210" width="254" height="45.5"/>
+                                <fontDescription key="fontDescription" name="freeversionSketchBlock-Bold" family="Sketch Block" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="mpR-Xb-YHt">
-                                <rect key="frame" x="127.5" y="587" width="120" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUt-Hf-mQF">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="T85-Yh-6cK"/>
-                                            <constraint firstAttribute="width" constant="40" id="uzi-07-qaj"/>
-                                        </constraints>
-                                        <state key="normal" title=" " backgroundImage="Facebook"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeD-lm-3HA">
-                                        <rect key="frame" x="80" y="0.0" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="FPj-bq-7yW"/>
-                                            <constraint firstAttribute="width" constant="40" id="lux-qg-AS5"/>
-                                        </constraints>
-                                        <state key="normal" title=" " backgroundImage="Settings"/>
-                                        <connections>
-                                            <segue destination="yaJ-Wy-Nmh" kind="show" id="d5V-S5-3PZ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeD-lm-3HA">
+                                <rect key="frame" x="319" y="607" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="FPj-bq-7yW"/>
+                                    <constraint firstAttribute="width" constant="40" id="lux-qg-AS5"/>
+                                </constraints>
+                                <state key="normal" title=" " backgroundImage="Settings"/>
+                                <connections>
+                                    <segue destination="yaJ-Wy-Nmh" kind="show" id="d5V-S5-3PZ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Morse" translatesAutoresizingMaskIntoConstraints="NO" id="vqi-yO-oOJ">
+                                <rect key="frame" x="113" y="50" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="69L-KB-qNk"/>
+                                    <constraint firstAttribute="height" constant="150" id="yVC-4I-zje"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rBa-Sx-WiI">
+                                <rect key="frame" x="40" y="438" width="127" height="147"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="D2p-kW-ic1"/>
+                                    <constraint firstAttribute="height" constant="147" id="QBd-Qf-xhK"/>
+                                </constraints>
+                                <string key="text">M
+O
+R
+S
+E</string>
+                                <fontDescription key="fontDescription" name="morse" family="morse" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gr-ap-0fD">
+                                <rect key="frame" x="207" y="416" width="128" height="191"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="7OR-RT-b7P"/>
+                                    <constraint firstAttribute="height" constant="191" id="gjG-C2-nhe"/>
+                                </constraints>
+                                <string key="text">L
+E
+A
+R
+N
+E
+R</string>
+                                <fontDescription key="fontDescription" name="morse" family="morse" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="l8i-RO-SFp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="190" id="5c8-oZ-Kyi"/>
+                            <constraint firstItem="8gr-ap-0fD" firstAttribute="centerY" secondItem="rBa-Sx-WiI" secondAttribute="centerY" id="5dE-sz-g3G"/>
                             <constraint firstItem="l8i-RO-SFp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6zM-ol-BW5"/>
                             <constraint firstItem="aXJ-Xx-Q7p" firstAttribute="top" secondItem="l8i-RO-SFp" secondAttribute="bottom" constant="40" id="FbT-Y1-xyx"/>
                             <constraint firstItem="aXJ-Xx-Q7p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="IU5-Y6-blO"/>
-                            <constraint firstItem="mpR-Xb-YHt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RZL-LA-uoC"/>
+                            <constraint firstItem="l8i-RO-SFp" firstAttribute="top" secondItem="vqi-yO-oOJ" secondAttribute="bottom" constant="10" id="NvN-FU-XOS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aXJ-Xx-Q7p" secondAttribute="trailing" constant="20" id="Sqi-LZ-HLE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mpR-Xb-YHt" secondAttribute="bottom" constant="40" id="kXg-VY-UVc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8gr-ap-0fD" secondAttribute="trailing" constant="40" id="ZIG-tf-B2g"/>
+                            <constraint firstItem="vqi-yO-oOJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZzS-LH-GZa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DeD-lm-3HA" secondAttribute="bottom" constant="20" id="f96-1W-iEc"/>
+                            <constraint firstItem="rBa-Sx-WiI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="gaP-lT-h1X"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8gr-ap-0fD" secondAttribute="bottom" constant="60" id="kt8-Ch-QYv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DeD-lm-3HA" secondAttribute="trailing" constant="16" id="pDk-MJ-oRS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DeD-lm-3HA" secondAttribute="trailing" constant="16" id="xPk-h9-pdz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -125,12 +166,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2a-XE-rQh">
-                                <rect key="frame" x="50" y="270" width="25" height="25"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="50" y="270" width="75" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="3kg-mP-9NP"/>
                                     <constraint firstAttribute="height" constant="25" id="ZhV-8k-JPW"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="morse" family="morse" pointSize="200"/>
+                                <state key="normal" title="E">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <real key="value" value="12.25"/>
@@ -148,19 +191,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCE-sZ-JaL">
-                                <rect key="frame" x="162.5" y="277" width="50" height="12"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="112.5" y="277" width="150" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="KzB-cr-afw"/>
-                                    <constraint firstAttribute="width" constant="50" id="ynL-XG-Tr5"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="morse" family="morse" pointSize="200"/>
+                                <state key="normal" title="T">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="longMorseButtonAction:" destination="zBw-qy-bs1" eventType="touchUpInside" id="tpX-0S-cSV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HL-Xn-vuE">
-                                <rect key="frame" x="187.5" y="218" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="188" y="218" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="morse" family="morse" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -191,7 +236,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOZ-I2-ueD">
-                                <rect key="frame" x="153.5" y="329" width="68.5" height="20.5"/>
+                                <rect key="frame" x="153.5" y="329" width="68" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -235,7 +280,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0f-ax-rHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JMS-tT-wsW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="-685"/>
+            <point key="canvasLocation" x="1624.8" y="-685.00749625187416"/>
         </scene>
         <!--Read Morse View Controller-->
         <scene sceneID="gon-MD-vy0">
@@ -279,9 +324,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oc5-rm-Nlu">
-                                <rect key="frame" x="171.5" y="70" width="32" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oc5-rm-Nlu">
+                                <rect key="frame" x="150.5" y="70" width="75" height="31.5"/>
+                                <fontDescription key="fontDescription" name="morse" family="morse" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -354,7 +399,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8H-ls-No3">
-                                <rect key="frame" x="85" y="181.5" width="75.5" height="21"/>
+                                <rect key="frame" x="85" y="181" width="75.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -362,14 +407,16 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iou-XF-8nj">
                                 <rect key="frame" x="16" y="125" width="51" height="31"/>
                                 <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9Uc-k9-5bS">
-                                <rect key="frame" x="16" y="176" width="51" height="31"/>
-                                <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="oneMinute:" destination="yaJ-Wy-Nmh" eventType="valueChanged" id="MdD-GC-9oA"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lmd-99-ZeS">
                                 <rect key="frame" x="16" y="227" width="51" height="31"/>
                                 <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="threeMinutes:" destination="yaJ-Wy-Nmh" eventType="valueChanged" id="Dg1-dk-VHA"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFP-G5-54a">
                                 <rect key="frame" x="85" y="232.5" width="75.5" height="21"/>
@@ -377,6 +424,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9Uc-k9-5bS">
+                                <rect key="frame" x="16" y="177" width="51" height="31"/>
+                                <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="twoMinutes:" destination="yaJ-Wy-Nmh" eventType="valueChanged" id="Lom-n9-wms"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -400,6 +454,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b8t-yX-VPI"/>
                     </view>
+                    <connections>
+                        <outlet property="oneMinuteSwitch" destination="iou-XF-8nj" id="qOz-uT-JVn"/>
+                        <outlet property="threeMinutesSwitch" destination="lmd-99-ZeS" id="pDN-vh-Vr3"/>
+                        <outlet property="twoMinutesSwitch" destination="9Uc-k9-5bS" id="2Ek-n4-64P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EB7-gy-WUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7gO-TR-u45" userLabel="Exit" sceneMemberID="exit"/>
@@ -408,7 +467,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Facebook" width="256" height="256"/>
+        <image name="Morse" width="100" height="100"/>
         <image name="Settings" width="256" height="256"/>
     </resources>
 </document>

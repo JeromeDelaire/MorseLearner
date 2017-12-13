@@ -13,8 +13,11 @@
 		B60319641FC46D8600A6C6F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B60319631FC46D8600A6C6F6 /* Assets.xcassets */; };
 		B60319671FC46D8600A6C6F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60319651FC46D8600A6C6F6 /* LaunchScreen.storyboard */; };
 		B60319721FC46D8600A6C6F6 /* MorseLearnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60319711FC46D8600A6C6F6 /* MorseLearnerTests.swift */; };
+		B61330271FE17C3E00A5998F /* Sketch_Block.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B61330261FE17C3D00A5998F /* Sketch_Block.ttf */; };
+		B61330291FE17E5600A5998F /* morse.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B61330281FE17E5500A5998F /* morse.ttf */; };
 		B62657471FD54291005EF103 /* MaxScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62657461FD54291005EF103 /* MaxScore.swift */; };
 		B6333AE81FD5613100205E72 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6333AE71FD5613100205E72 /* SettingsViewController.swift */; };
+		B645C3691FE15FCB003C0CED /* SettingsSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645C3681FE15FCB003C0CED /* SettingsSaver.swift */; };
 		B68F888B1FCC537C0014338E /* ReadMorseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68F888A1FCC537C0014338E /* ReadMorseViewController.swift */; };
 		B6976A581FC5AD7B0060C0EB /* WriteMorseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6976A571FC5AD7B0060C0EB /* WriteMorseViewController.swift */; };
 		B6976A5C1FC5CA830060C0EB /* MorseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6976A5B1FC5CA830060C0EB /* MorseDecoder.swift */; };
@@ -41,11 +44,14 @@
 		B603196D1FC46D8600A6C6F6 /* MorseLearnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MorseLearnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B60319711FC46D8600A6C6F6 /* MorseLearnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseLearnerTests.swift; sourceTree = "<group>"; };
 		B60319731FC46D8600A6C6F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B61330261FE17C3D00A5998F /* Sketch_Block.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sketch_Block.ttf; path = ../../../../../../Downloads/Sketch_Block.ttf; sourceTree = "<group>"; };
+		B61330281FE17E5500A5998F /* morse.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = morse.ttf; path = ../../../../../../Downloads/morse/morse.ttf; sourceTree = "<group>"; };
 		B62657461FD54291005EF103 /* MaxScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxScore.swift; sourceTree = "<group>"; };
 		B6333AE71FD5613100205E72 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B645C3681FE15FCB003C0CED /* SettingsSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSaver.swift; sourceTree = "<group>"; };
 		B68F888A1FCC537C0014338E /* ReadMorseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMorseViewController.swift; sourceTree = "<group>"; };
 		B6976A571FC5AD7B0060C0EB /* WriteMorseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMorseViewController.swift; sourceTree = "<group>"; };
-		B6976A5B1FC5CA830060C0EB /* MorseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseDecoder.swift; sourceTree = "<group>"; };
+		B6976A5B1FC5CA830060C0EB /* MorseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MorseDecoder.swift; path = ../MorseDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +75,6 @@
 		B60319501FC46D8600A6C6F6 = {
 			isa = PBXGroup;
 			children = (
-				B6976A5B1FC5CA830060C0EB /* MorseDecoder.swift */,
 				B603195B1FC46D8600A6C6F6 /* MorseLearner */,
 				B60319701FC46D8600A6C6F6 /* MorseLearnerTests */,
 				B603195A1FC46D8600A6C6F6 /* Products */,
@@ -93,11 +98,15 @@
 				B6976A571FC5AD7B0060C0EB /* WriteMorseViewController.swift */,
 				B68F888A1FCC537C0014338E /* ReadMorseViewController.swift */,
 				B62657461FD54291005EF103 /* MaxScore.swift */,
+				B6333AE71FD5613100205E72 /* SettingsViewController.swift */,
+				B6976A5B1FC5CA830060C0EB /* MorseDecoder.swift */,
 				B60319601FC46D8600A6C6F6 /* Main.storyboard */,
+				B61330281FE17E5500A5998F /* morse.ttf */,
+				B61330261FE17C3D00A5998F /* Sketch_Block.ttf */,
 				B60319631FC46D8600A6C6F6 /* Assets.xcassets */,
 				B60319651FC46D8600A6C6F6 /* LaunchScreen.storyboard */,
 				B60319681FC46D8600A6C6F6 /* Info.plist */,
-				B6333AE71FD5613100205E72 /* SettingsViewController.swift */,
+				B645C3681FE15FCB003C0CED /* SettingsSaver.swift */,
 			);
 			path = MorseLearner;
 			sourceTree = "<group>";
@@ -194,7 +203,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B61330271FE17C3E00A5998F /* Sketch_Block.ttf in Resources */,
 				B60319671FC46D8600A6C6F6 /* LaunchScreen.storyboard in Resources */,
+				B61330291FE17E5600A5998F /* morse.ttf in Resources */,
 				B60319641FC46D8600A6C6F6 /* Assets.xcassets in Resources */,
 				B60319621FC46D8600A6C6F6 /* Main.storyboard in Resources */,
 			);
@@ -214,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B645C3691FE15FCB003C0CED /* SettingsSaver.swift in Sources */,
 				B603195F1FC46D8600A6C6F6 /* ViewController.swift in Sources */,
 				B6976A5C1FC5CA830060C0EB /* MorseDecoder.swift in Sources */,
 				B6333AE81FD5613100205E72 /* SettingsViewController.swift in Sources */,

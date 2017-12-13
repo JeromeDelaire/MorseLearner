@@ -11,20 +11,33 @@ import Foundation
 class MaxScore : NSObject, NSCoding {
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ReadScoreURL = DocumentsDirectory.appendingPathComponent("readScore")
-    static let WriteScoreURL = DocumentsDirectory.appendingPathComponent("writeScore")
+    static var ReadScoreURL = DocumentsDirectory.appendingPathComponent("read1Score")
+    static var WriteScoreURL = DocumentsDirectory.appendingPathComponent("write1Score")
     
     struct Keys {
         static let writeMaxScore = "writemaxscore"
         static let readMaxScore = "readmaxscore"
     }
     
-    var writeScore = 0
-    var readScore = 0
+    var writeScore : Int?
+    var readScore : Int?
     
-    init(writeScore: Int, readScore: Int) {
-        self.writeScore = writeScore
-        self.readScore = readScore
+    init(_ gamesTime : Int) {
+        
+        if gamesTime==1 {
+            MaxScore.ReadScoreURL = MaxScore.DocumentsDirectory.appendingPathComponent("read1Score")
+            MaxScore.WriteScoreURL = MaxScore.DocumentsDirectory.appendingPathComponent("write1Score")
+        }
+        
+        else if(gamesTime==2){
+            MaxScore.ReadScoreURL = MaxScore.DocumentsDirectory.appendingPathComponent("read2Score")
+            MaxScore.WriteScoreURL = MaxScore.DocumentsDirectory.appendingPathComponent("write2Score")
+        }
+        
+        else if gamesTime==3 {
+            MaxScore.ReadScoreURL = MaxScore.DocumentsDirectory.appendingPathComponent("read3Score")
+            MaxScore.WriteScoreURL = MaxScore.DocumentsDirectory.appendingPathComponent("write3Score")
+        }
     }
     
     func encodeWithCoder(archiver: NSCoder) {
@@ -34,8 +47,8 @@ class MaxScore : NSObject, NSCoding {
     
     required init(coder unarchiver: NSCoder) {
         super.init()
-        writeScore = unarchiver.decodeObject(forKey: Keys.writeMaxScore) as! Int
-        readScore = unarchiver.decodeObject(forKey: Keys.readMaxScore) as! Int
+        writeScore = unarchiver.decodeObject(forKey: Keys.writeMaxScore) as? Int
+        readScore = unarchiver.decodeObject(forKey: Keys.readMaxScore) as? Int
     }
     
     func encode(with aCoder: NSCoder) {
@@ -44,11 +57,11 @@ class MaxScore : NSObject, NSCoding {
     }
     
     func saveReadScore() {
-        NSKeyedArchiver.archiveRootObject(readScore, toFile: MaxScore.ReadScoreURL.path)
+        NSKeyedArchiver.archiveRootObject(readScore!, toFile: MaxScore.ReadScoreURL.path)
     }
     
     func saveWriteScore() {
-        NSKeyedArchiver.archiveRootObject(writeScore, toFile: MaxScore.WriteScoreURL.path)
+        NSKeyedArchiver.archiveRootObject(writeScore!, toFile: MaxScore.WriteScoreURL.path)
     }
     
     func loadReadScore() -> Int? {

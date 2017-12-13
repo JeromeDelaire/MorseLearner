@@ -13,13 +13,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var writeMaxScoreLabel: UILabel!
     @IBOutlet weak var readMaxScoreLabel: UILabel!
     
-    var maxScore = MaxScore(writeScore: 0,readScore: 0)
+    var maxScore : MaxScore?
+    var settingsSaver = SettingsSaver(1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        writeMaxScoreLabel.text = "Record : \(maxScore.loadWriteScore()!)"
-        readMaxScoreLabel.text = "Record : \(maxScore.loadReadScore()!)"
+        maxScore = MaxScore(settingsSaver.loadGamesTime()!)
+        
+        writeMaxScoreLabel.text = "Record : \(maxScore!.loadWriteScore()!)"
+        readMaxScoreLabel.text = "Record : \(maxScore!.loadReadScore()!)"
         // any additional setup after loading the view, typically from a nib.
     }
 
@@ -33,8 +36,10 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        writeMaxScoreLabel.text = "Record : \(maxScore.loadWriteScore()!)"
-        readMaxScoreLabel.text = "Record : \(maxScore.loadReadScore()!)"
+        maxScore = MaxScore(settingsSaver.loadGamesTime()!)
+        writeMaxScoreLabel.text = "Record : \(maxScore!.loadWriteScore()!)"
+        readMaxScoreLabel.text = "Record : \(maxScore!.loadReadScore()!)"
+       
     }
 
 }
